@@ -1,0 +1,73 @@
+'use client'
+
+import type { SavedPlace } from '@/lib/types'
+import SavedPlaceCard from '@/components/SavedPlaceCard'
+
+interface SavedScreenProps {
+  savedPlaces: SavedPlace[]
+  onRemove:    (id: string) => void
+  onUpdate:    (id: string, updates: Partial<SavedPlace>) => void
+}
+
+export default function SavedScreen({ savedPlaces, onRemove, onUpdate }: SavedScreenProps) {
+  const wishlist = savedPlaces.filter(p => p.status === 'want-to-go')
+  const visited  = savedPlaces.filter(p => p.status === 'been-there')
+
+  return (
+    <div className="flex-1 px-5 md:px-8 lg:px-10 pt-14 pb-36 overflow-y-auto">
+      <header className="mb-6">
+        <p className="text-[10px] font-semibold tracking-[0.2em] text-terracotta-500 uppercase mb-3">Melbourne · Your places</p>
+        <h2 className="font-serif text-[2rem] leading-tight text-charcoal">
+          {savedPlaces.length === 0
+            ? 'Your list is empty.'
+            : <>{savedPlaces.length}{' '}place{savedPlaces.length !== 1 ? 's' : ''}{' '}saved.</>}
+        </h2>
+        {savedPlaces.length === 0 && (
+          <p className="text-sm text-zinc-400 mt-2 leading-relaxed">
+            Bookmark places from your picks to build your list.
+          </p>
+        )}
+      </header>
+
+      {savedPlaces.length > 0 && (
+        <div className="space-y-8">
+          {wishlist.length > 0 && (
+            <section>
+              <p className="text-[10px] font-semibold tracking-[0.15em] text-zinc-400 uppercase mb-3">
+                Want to go · {wishlist.length}
+              </p>
+              <div className="space-y-4">
+                {wishlist.map(place => (
+                  <SavedPlaceCard
+                    key={place.id}
+                    place={place}
+                    onRemove={() => onRemove(place.id)}
+                    onUpdate={updates => onUpdate(place.id, updates)}
+                  />
+                ))}
+              </div>
+            </section>
+          )}
+
+          {visited.length > 0 && (
+            <section>
+              <p className="text-[10px] font-semibold tracking-[0.15em] text-zinc-400 uppercase mb-3">
+                Been there · {visited.length}
+              </p>
+              <div className="space-y-4">
+                {visited.map(place => (
+                  <SavedPlaceCard
+                    key={place.id}
+                    place={place}
+                    onRemove={() => onRemove(place.id)}
+                    onUpdate={updates => onUpdate(place.id, updates)}
+                  />
+                ))}
+              </div>
+            </section>
+          )}
+        </div>
+      )}
+    </div>
+  )
+}
