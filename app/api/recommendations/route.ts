@@ -2,6 +2,8 @@ import Anthropic from '@anthropic-ai/sdk'
 import { NextRequest, NextResponse } from 'next/server'
 import type { Filters } from '@/lib/types'
 
+export const maxDuration = 60
+
 // ─── Google Places types ───────────────────────────────────────────────────────
 
 interface GoogleReview {
@@ -36,8 +38,8 @@ export async function POST(request: NextRequest) {
     const googlePlaces = await searchGooglePlaces(filters).catch(() => [])
 
     const message = await client.messages.create({
-      model:      'claude-sonnet-4-6',
-      max_tokens: 2048,
+      model:      'claude-haiku-4-5-20251001',
+      max_tokens: 1024,
       system:     'You are a Melbourne, Australia dining and bar guide. You ONLY recommend venues physically located in Melbourne, Victoria, Australia. Return only valid JSON with no text outside the JSON object.',
       messages:   [{ role: 'user', content: buildPrompt(filters, count, excludeNames, googlePlaces) }],
     })

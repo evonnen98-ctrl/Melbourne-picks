@@ -1,12 +1,15 @@
 import Anthropic from '@anthropic-ai/sdk'
 import { NextResponse } from 'next/server'
 
+export const maxDuration = 60
+export const revalidate  = 3600   // cache the result for 1 hour; only calls Claude on first request per hour
+
 export async function GET() {
   const client = new Anthropic({ apiKey: process.env.SEAM_ANTHROPIC_API_KEY })
   try {
     const message = await client.messages.create({
-      model: 'claude-sonnet-4-6',
-      max_tokens: 3000,
+      model: 'claude-haiku-4-5-20251001',
+      max_tokens: 1200,
       system:
         'You are a helpful assistant that returns only valid JSON. Never include any text outside the JSON array.',
       messages: [
