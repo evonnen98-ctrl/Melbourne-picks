@@ -62,7 +62,7 @@ export async function POST(request: NextRequest) {
     const message = err instanceof Error ? err.message : String(err)
     console.error('Recommendations error:', message)
     return NextResponse.json(
-      { error: message },   // temp: always expose real error for debugging
+      { error: process.env.NODE_ENV === 'development' ? message : 'Failed to get recommendations' },
       { status: 500 }
     )
   }
