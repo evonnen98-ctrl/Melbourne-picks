@@ -5,7 +5,7 @@ export const maxDuration = 60
 export const revalidate  = 3600   // cache the result for 1 hour; only calls Claude on first request per hour
 
 export async function GET() {
-  const client = new Anthropic({ apiKey: process.env.SEAM_ANTHROPIC_API_KEY })
+  const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
   try {
     const message = await client.messages.create({
       model: 'claude-haiku-4-5-20251001',
