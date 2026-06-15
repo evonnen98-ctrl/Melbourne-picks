@@ -2,8 +2,6 @@ import Anthropic from '@anthropic-ai/sdk'
 import { NextRequest, NextResponse } from 'next/server'
 import type { Filters } from '@/lib/types'
 
-export const maxDuration = 60
-
 // ─── Google Places types ───────────────────────────────────────────────────────
 
 interface GoogleReview {
