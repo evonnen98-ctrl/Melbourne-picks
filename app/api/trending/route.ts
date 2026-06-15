@@ -1,8 +1,6 @@
 import Anthropic from '@anthropic-ai/sdk'
 import { NextResponse } from 'next/server'
 
-export const revalidate = 3600   // cache for 1 hour — only calls Claude on first request per hour
-
 export async function GET() {
   const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
   try {
