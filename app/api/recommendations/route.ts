@@ -37,7 +37,7 @@ export async function POST(request: NextRequest) {
 
     const message = await client.messages.create({
       model:      'claude-haiku-4-5-20251001',
-      max_tokens: 1024,
+      max_tokens: 2048,
       system:     'You are a Melbourne, Australia dining and bar guide. You ONLY recommend venues physically located in Melbourne, Victoria, Australia. Return only valid JSON with no text outside the JSON object.',
       messages:   [{ role: 'user', content: buildPrompt(filters, count, excludeNames, googlePlaces) }],
     })
@@ -62,7 +62,7 @@ export async function POST(request: NextRequest) {
     const message = err instanceof Error ? err.message : String(err)
     console.error('Recommendations error:', message)
     return NextResponse.json(
-      { error: process.env.NODE_ENV === 'development' ? message : 'Failed to get recommendations' },
+      { error: message },   // temp: always expose real error for debugging
       { status: 500 }
     )
   }
