@@ -22,10 +22,14 @@ export async function GET() {
     claudeError = e instanceof Error ? e.message : String(e)
   }
 
+  // List all env var NAMES visible at runtime (no values)
+  const allKeys = Object.keys(process.env).sort()
+
   return NextResponse.json({
     anthropicKey: keyInfo(anthropicKey),
     placesKey:    keyInfo(placesKey),
     claudeError,
     env:          process.env.NODE_ENV,
+    allEnvKeys:   allKeys,
   })
 }
