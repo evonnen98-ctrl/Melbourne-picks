@@ -24,7 +24,7 @@ interface GooglePlace {
 // ─── API handler ───────────────────────────────────────────────────────────────
 
 export async function POST(request: NextRequest) {
-  const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
+  const client = new Anthropic({ apiKey: process.env.SEAM_ANTHROPIC_API_KEY })
   try {
     const {
       filters,
