@@ -324,7 +324,7 @@ function buildPrompt(
     : '• No specific preferences — give your top picks across Melbourne'
 
   const excludeClause = excludeNames.length > 0
-    ? `\nDo NOT suggest any of these already-recommended venues:\n${excludeNames.map(n => `• ${n}`).join('\n')}\n`
+    ? `\nIMPORTANT — these venues have already been shown. Do NOT include any of them:\n${excludeNames.map(n => `• ${n}`).join('\n')}\nSuggest completely DIFFERENT venues only.\n`
     : ''
 
   // ── Google Places venue list ─────────────────────────────────────────────────

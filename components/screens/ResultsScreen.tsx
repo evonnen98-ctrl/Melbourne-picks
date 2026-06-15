@@ -139,7 +139,21 @@ export default function ResultsScreen({
       })
       const data = await res.json()
       if (!res.ok || data.error) throw new Error(data.error || 'Request failed')
-      setAllResults(prev => [...prev, ...(data.places ?? [])])
+
+      // Hard client-side dedup — catches cases where the model ignores the exclusion list
+      const shownIds   = new Set(allResults.map(p => p.id))
+      const shownNames = new Set(allResults.map(p => p.name.toLowerCase()))
+      const newPlaces  = (data.places ?? []).filter(
+        (p: Place) => !shownIds.has(p.id) && !shownNames.has(p.name.toLowerCase())
+      )
+
+      if (newPlaces.length === 0) {
+        setMoreError("That's all the matches we found for your preferences.")
+        setMoreClicks(MAX_MORE_CLICKS)
+        return
+      }
+
+      setAllResults(prev => [...prev, ...newPlaces])
       setMoreClicks(prev => prev + 1)
     } catch {
       setMoreError("Couldn't load more places. Please try again.")
