@@ -2,7 +2,7 @@ import Anthropic from '@anthropic-ai/sdk'
 import { NextResponse } from 'next/server'
 
 export async function GET() {
-  const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
+  const client = new Anthropic({ apiKey: process.env.SEAM_ANTHROPIC_API_KEY })
   try {
     const message = await client.messages.create({
       model: 'claude-sonnet-4-6',
