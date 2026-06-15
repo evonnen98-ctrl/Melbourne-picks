@@ -6,8 +6,11 @@ export async function GET() {
   const placesKey    = process.env.GOOGLE_PLACES_API_KEY
 
   // Show key shape without revealing the value
-  const keyInfo = (k: string | undefined) =>
-    k ? `set (${k.length} chars, starts: ${k.slice(0, 7)}...)` : 'MISSING'
+  const keyInfo = (k: string | undefined) => {
+    if (k === undefined) return 'undefined'
+    if (k === '')        return 'empty string'
+    return `set — ${k.length} chars, starts "${k.slice(0, 10)}"`
+  }
 
   let claudeError: string | null = null
   try {
