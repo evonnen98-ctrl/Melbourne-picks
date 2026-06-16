@@ -10,11 +10,11 @@ I wanted to see how AI could create a more personalized alternative to tradition
 ## Features
 * **Tailored recommendations:** Finds local spots based on specific user preferences instead of generic star ratings.
 * **Melbourne directory:** Focuses on restaurants, bars, cafes, and local activities around the city.
-* **Dynamic responses:** Uses the Claude API to generate recommendations on the fly.
+* **Dynamic responses:** Uses the Claude API to generate recommendations.
 
 ## Tech Stack
 React (Vite), TypeScript, Node.js, Express, Claude API, Tailwind CSS
 
 ## Key Learnings
-* **Handling API response times:** LLM APIs can sometimes be slow. I had to focus on optimizing the frontend state and loading states so the user isn't stuck staring at a blank screen.
+* **Handling API response times:** LLM APIs can sometimes be slow. I had to focus on optimising the frontend state and loading states so the user isn't stuck staring at a blank screen.
 * **Structured parsing:** Learned how to prompt the API to return clean, predictable data format structures so the frontend could render them reliably.
