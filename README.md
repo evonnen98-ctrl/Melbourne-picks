@@ -1,20 +1,18 @@
-# 📍 My Next Spot - AI Recommendation Platform
+# My Next Spot
 
-An AI-powered discovery and recommendation platform that helps users find the best restaurants, bars, cafes, and activities around Melbourne tailored specifically to their tastes and mood.
+An AI-powered recommendation platform that helps users discover restaurants, bars, cafes, and activities around Melbourne based on their preferences and interests.
 
-## 💡 The "Why" (Project Inspiration)
-Traditional search platforms (like Google Maps or local review sites) often require a lot of manual filtering and scrolling. I built *My Next Spot* to explore how conversational AI can act as a personalized concierge, creating a faster, more curated alternative to traditional directories.
+## Why I built this
+I wanted to see how AI could create a more personalized alternative to traditional review and directory sites (like Google Maps, Broadsheet, or TimeOut) where you usually have to do a lot of manual scrolling and filtering.
 
-## ✨ Key Features
-*   **Hyper-Personalized Curation:** Delivers tailored dining and activity recommendations based on specific user preferences rather than generic star ratings.
-*   **Local Melbourne Discovery:** Filtered and optimized to surface hidden gems and top-tier spots across Melbourne.
-*   **Dynamic Generation:** Utilizes live-prompting via the Claude API to ensure responses feel conversational and intuitive.
+## Features
+* **Tailored recommendations:** Finds local spots based on specific user preferences instead of generic star ratings.
+* **Melbourne directory:** Focuses on restaurants, bars, cafes, and local activities around the city.
+* **Dynamic responses:** Uses the Claude API to generate recommendations on the fly.
 
-## 🛠️ Tech Stack
-*   **Frontend:** React (Vite), TypeScript, Tailwind CSS
-*   **Backend:** Node.js, Express
-*   **AI Integration:** Claude API
-*(Note: Add your database/hosting here if applicable!)*
+## Tech Stack
+React (Vite), TypeScript, Node.js, Express, Claude API, Tailwind CSS
 
-## 🧠 Key Learnings
-*   *Add 2-3 bullet points here about what you learned building this site! For example: what did you learn about handling API response times? Or formatting the data that Claude sent back to you?*
+## Key Learnings
+* **Handling API response times:** LLM APIs can sometimes be slow. I had to focus on optimizing the frontend state and loading states so the user isn't stuck staring at a blank screen.
+* **Structured parsing:** Learned how to prompt the API to return clean, predictable data format structures so the frontend could render them reliably.
