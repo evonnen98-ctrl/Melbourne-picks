@@ -4,10 +4,10 @@ import { useState } from 'react'
 import type { Place } from '@/lib/types'
 
 interface PlaceCardProps {
-  place:        Place
-  index:        number
-  onSave:       () => void
-  isSaved:      boolean
+  place:         Place
+  index:         number
+  onSave:        () => void
+  isSaved:       boolean
   isCloseMatch?: boolean
 }
 
@@ -34,7 +34,7 @@ export default function PlaceCard({ place, index, onSave, isSaved, isCloseMatch 
               {String(index + 1).padStart(2, '0')}
             </span>
             {isCloseMatch && (
-              <span className="text-[10px] font-semibold tracking-wider text-amber-600 uppercase bg-amber-50 px-2 py-0.5 rounded-full">
+              <span className="text-[10px] font-semibold text-amber-600 bg-amber-50 px-2 py-0.5 rounded-full">
                 Close match
               </span>
             )}
@@ -45,15 +45,15 @@ export default function PlaceCard({ place, index, onSave, isSaved, isCloseMatch 
         <button
           onClick={handleSave}
           aria-label={isSaved ? 'Saved' : 'Save this place'}
-          className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 ${
+          className={`flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200 ${
             popEffect ? 'scale-125' : 'scale-100'
           } ${
             isSaved
-              ? 'bg-terracotta-500 text-cream'
-              : 'bg-zinc-50 text-zinc-400 hover:bg-terracotta-50 hover:text-terracotta-400 active:scale-90'
+              ? 'bg-sage-500 text-cream'
+              : 'bg-zinc-50 text-zinc-400 hover:bg-sage-50 hover:text-sage-400 active:scale-90'
           }`}
         >
-          <svg width="15" height="15" viewBox="0 0 24 24" fill={isSaved ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill={isSaved ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
           </svg>
         </button>
@@ -61,26 +61,27 @@ export default function PlaceCard({ place, index, onSave, isSaved, isCloseMatch 
 
       <p className="text-sm text-zinc-600 leading-relaxed mb-3 flex-1">{place.description}</p>
 
-      <div className="bg-terracotta-50 rounded-xl px-4 py-2.5 mb-4">
-        <p className="text-xs text-terracotta-800 leading-relaxed">
-          <span className="font-semibold">Why this? </span>
-          {place.whyItMatches}
-        </p>
-      </div>
+      {place.whyItMatches && (
+        <div className="bg-sage-50 rounded-xl px-4 py-2.5 mb-4">
+          <p className="text-xs text-sage-800 leading-relaxed">
+            <span className="font-semibold">Why this? </span>
+            {place.whyItMatches}
+          </p>
+        </div>
+      )}
 
-      {/* Meta row */}
-      <div className="flex items-center flex-wrap gap-x-3 gap-y-1 text-xs text-zinc-500 mb-4">
+      <div className="flex items-center flex-wrap gap-x-2.5 gap-y-1 text-xs text-zinc-500 mb-4">
         <span>{place.cuisineType}</span>
-        <span className="text-zinc-300">·</span>
+        <span className="text-zinc-200">·</span>
         <span>{place.neighbourhood}</span>
-        <span className="text-zinc-300">·</span>
+        <span className="text-zinc-200">·</span>
         <span className="font-medium text-zinc-700">{place.priceRange}</span>
         {place.googleRating > 0 && (
           <>
-            <span className="text-zinc-300">·</span>
+            <span className="text-zinc-200">·</span>
             <span className="flex items-center gap-1">
               <span className="text-amber-400">★</span>
-              <span className="font-semibold text-zinc-700">{place.googleRating.toFixed(1)}</span>
+              <span className="font-semibold text-zinc-600">{place.googleRating.toFixed(1)}</span>
               <span className="text-zinc-400">Google</span>
             </span>
           </>
@@ -88,7 +89,6 @@ export default function PlaceCard({ place, index, onSave, isSaved, isCloseMatch 
       </div>
 
       <div className="flex gap-2">
-        {/* Always shown — secondary outlined */}
         <a
           href={googleHref(place.name)}
           target="_blank"
@@ -97,14 +97,12 @@ export default function PlaceCard({ place, index, onSave, isSaved, isCloseMatch 
         >
           View on Google
         </a>
-
-        {/* Only shown when website URL exists — primary filled */}
         {place.websiteUrl && (
           <a
             href={place.websiteUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 text-center text-xs font-medium py-2.5 rounded-xl bg-terracotta-500 text-cream hover:bg-terracotta-600 transition-all duration-150 active:scale-[0.98]"
+            className="flex-1 text-center text-xs font-medium py-2.5 rounded-xl bg-sage-500 text-cream hover:bg-sage-600 transition-all duration-150 active:scale-[0.98]"
           >
             Book a Table →
           </a>

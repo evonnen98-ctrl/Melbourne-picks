@@ -28,8 +28,8 @@ export default function TrendingCard({ venue, rank, onSave, isSaved }: TrendingC
     <div className="bg-white rounded-2xl p-5 shadow-sm border border-zinc-100/80 hover:shadow-md transition-shadow duration-200">
       <div className="flex items-start gap-4">
         {/* Rank badge */}
-        <div className="flex-shrink-0 w-9 h-9 rounded-full bg-terracotta-50 flex items-center justify-center">
-          <span className="text-xs font-bold text-terracotta-500">
+        <div className="flex-shrink-0 w-9 h-9 rounded-full bg-sage-50 flex items-center justify-center">
+          <span className="text-xs font-bold text-sage-500">
             {String(rank).padStart(2, '0')}
           </span>
         </div>
@@ -41,7 +41,7 @@ export default function TrendingCard({ venue, rank, onSave, isSaved }: TrendingC
               <div className="flex items-center gap-2 mb-0.5">
                 <h3 className="font-serif text-xl text-charcoal leading-tight">{venue.name}</h3>
                 {rank <= 3 && (
-                  <span className="flex-shrink-0 text-[10px] font-semibold tracking-wider text-terracotta-500 uppercase bg-terracotta-50 px-2 py-0.5 rounded-full">
+                  <span className="flex-shrink-0 text-[10px] font-semibold tracking-wider text-sage-500 uppercase bg-sage-50 px-2 py-0.5 rounded-full">
                     Hot
                   </span>
                 )}
@@ -57,8 +57,8 @@ export default function TrendingCard({ venue, rank, onSave, isSaved }: TrendingC
                 popEffect ? 'scale-125' : 'scale-100'
               } ${
                 isSaved
-                  ? 'bg-terracotta-500 text-cream'
-                  : 'bg-zinc-50 text-zinc-400 hover:bg-terracotta-50 hover:text-terracotta-400 active:scale-90'
+                  ? 'bg-sage-500 text-cream'
+                  : 'bg-zinc-50 text-zinc-400 hover:bg-sage-50 hover:text-sage-400 active:scale-90'
               }`}
             >
               <svg width="14" height="14" viewBox="0 0 24 24" fill={isSaved ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -89,11 +89,11 @@ export default function TrendingCard({ venue, rank, onSave, isSaved }: TrendingC
           {/* As seen in */}
           {venue.seenIn && (
             <div className="flex items-center gap-1.5 mt-2.5">
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-terracotta-400 flex-shrink-0">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-sage-400 flex-shrink-0">
                 <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
                 <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
               </svg>
-              <span className="text-[10px] text-terracotta-500 font-medium tracking-wide">
+              <span className="text-[10px] text-sage-500 font-medium tracking-wide">
                 As seen in {venue.seenIn}
               </span>
             </div>
@@ -101,7 +101,6 @@ export default function TrendingCard({ venue, rank, onSave, isSaved }: TrendingC
 
           {/* Action buttons */}
           <div className="flex gap-2 mt-3">
-            {/* Always shown — secondary outlined */}
             <a
               href={googleHref(venue.name)}
               target="_blank"
@@ -110,14 +109,12 @@ export default function TrendingCard({ venue, rank, onSave, isSaved }: TrendingC
             >
               View on Google
             </a>
-
-            {/* Only shown when website URL exists — primary filled */}
             {venue.websiteUrl && (
               <a
                 href={venue.websiteUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 text-center text-xs font-medium py-2 rounded-xl bg-terracotta-500 text-cream hover:bg-terracotta-600 transition-all duration-150 active:scale-[0.98]"
+                className="flex-1 text-center text-xs font-medium py-2 rounded-xl bg-sage-500 text-cream hover:bg-sage-600 transition-all duration-150 active:scale-[0.98]"
               >
                 Book a Table →
               </a>

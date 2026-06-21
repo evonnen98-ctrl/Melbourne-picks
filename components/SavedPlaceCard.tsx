@@ -40,9 +40,9 @@ export default function SavedPlaceCard({ place, onRemove, onUpdate }: SavedPlace
             onClick={() => onUpdate({ status })}
             className={`flex-1 py-2 rounded-xl text-xs font-medium transition-all duration-150 active:scale-95 ${
               place.status === status
-                ? status === 'been-there'
-                  ? 'bg-charcoal text-cream'
-                  : 'bg-terracotta-500 text-cream'
+                ? status === 'want-to-go'
+                  ? 'bg-sage-500 text-cream'
+                  : 'bg-charcoal text-cream'
                 : 'bg-zinc-100 text-zinc-500 hover:bg-zinc-200'
             }`}
           >

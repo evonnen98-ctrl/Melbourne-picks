@@ -21,7 +21,7 @@ export default function StarRating({ rating, onChange }: StarRatingProps) {
           aria-label={`${star} star${star !== 1 ? 's' : ''}`}
           className="text-lg leading-none transition-transform hover:scale-110 active:scale-90"
         >
-          <span className={`transition-colors ${star <= (hovered || rating) ? 'text-amber-400' : 'text-zinc-200'}`}>
+          <span className={`transition-colors ${star <= (hovered || rating) ? 'text-amber-400' : 'text-olive/20'}`}>
             ★
           </span>
         </button>

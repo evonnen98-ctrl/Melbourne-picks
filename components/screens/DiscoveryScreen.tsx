@@ -102,9 +102,9 @@ export default function DiscoveryScreen({
     filters.craving.trim() !== ''
 
   return (
-    <div className="flex-1 px-5 md:px-8 lg:px-10 pt-14 pb-36 overflow-y-auto">
+    <div className="px-5 md:px-8 lg:px-10">
       <header className="mb-8">
-        <p className="text-[10px] font-semibold tracking-[0.2em] text-terracotta-500 uppercase mb-3">
+        <p className="text-[10px] font-semibold tracking-[0.2em] text-sage-500 uppercase mb-3">
           Melbourne · Personalised picks
         </p>
         <div className="flex items-end justify-between">
@@ -114,7 +114,7 @@ export default function DiscoveryScreen({
           {hasActiveFilters && (
             <button
               onClick={() => setFilters(CLEAR_FILTERS)}
-              className="mb-1.5 text-xs text-zinc-400 hover:text-terracotta-500 transition-colors underline underline-offset-2"
+              className="mb-1.5 text-xs text-zinc-400 hover:text-sage-500 transition-colors underline underline-offset-2"
             >
               Clear all
             </button>
@@ -139,7 +139,6 @@ export default function DiscoveryScreen({
             ))}
           </FilterSection>
 
-          {/* Style sub-filters — visible when Type = All */}
           {filters.type === 'all' && (
             <SubFilterSection label="Style" hint="pick one or more">
               {[...BAR_TYPES, ...CAFE_TYPES].map(s => {
@@ -209,13 +208,11 @@ export default function DiscoveryScreen({
 
         </div>
 
-        {/* Right column: Budget, Location, Craving */}
+        {/* Right column: Budget, Location, Rating, Craving */}
         <div className="space-y-7 mt-7 lg:mt-0">
 
           <div>
-            <p className="text-[10px] font-semibold tracking-[0.15em] text-zinc-400 uppercase mb-3">
-              Budget
-            </p>
+            <p className="text-[10px] font-semibold tracking-[0.15em] text-zinc-400 uppercase mb-3">Budget</p>
             <div className="flex flex-wrap gap-2">
               {BUDGETS.map(b => (
                 <FilterChip
@@ -229,22 +226,16 @@ export default function DiscoveryScreen({
           </div>
 
           <div>
-            <p className="text-[10px] font-semibold tracking-[0.15em] text-zinc-400 uppercase mb-3">
-              Location
-            </p>
+            <p className="text-[10px] font-semibold tracking-[0.15em] text-zinc-400 uppercase mb-3">Location</p>
             <input
               type="text"
               value={filters.suburb}
               onChange={e => {
                 const suburb = e.target.value
-                setFilters({
-                  ...filters,
-                  suburb,
-                  radius: suburb ? filters.radius : 'anywhere',
-                })
+                setFilters({ ...filters, suburb, radius: suburb ? filters.radius : 'anywhere' })
               }}
               placeholder="e.g. Fitzroy, South Yarra, CBD"
-              className="w-full px-4 py-2.5 rounded-xl border border-zinc-200 bg-white text-sm text-charcoal placeholder-zinc-400 focus:outline-none focus:border-terracotta-400 focus:ring-1 focus:ring-terracotta-400/30 transition-colors"
+              className="w-full px-4 py-2.5 rounded-xl border border-zinc-200 bg-white text-sm text-charcoal placeholder-zinc-400 focus:outline-none focus:border-sage-400 focus:ring-1 focus:ring-sage-400/30 transition-colors"
             />
             <div className="flex flex-wrap gap-2 mt-3">
               {RADII.map(r => (
@@ -270,15 +261,13 @@ export default function DiscoveryScreen({
           </FilterSection>
 
           <div>
-            <p className="text-[10px] font-semibold tracking-[0.15em] text-zinc-400 uppercase mb-3">
-              Craving something specific
-            </p>
+            <p className="text-[10px] font-semibold tracking-[0.15em] text-zinc-400 uppercase mb-3">Craving something specific</p>
             <input
               type="text"
               value={filters.craving}
               onChange={e => setFilters({ ...filters, craving: e.target.value })}
               placeholder="e.g. truffle pasta, natural wine, banh mi"
-              className="w-full px-4 py-2.5 rounded-xl border border-zinc-200 bg-white text-sm text-charcoal placeholder-zinc-400 focus:outline-none focus:border-terracotta-400 focus:ring-1 focus:ring-terracotta-400/30 transition-colors"
+              className="w-full px-4 py-2.5 rounded-xl border border-zinc-200 bg-white text-sm text-charcoal placeholder-zinc-400 focus:outline-none focus:border-sage-400 focus:ring-1 focus:ring-sage-400/30 transition-colors"
             />
           </div>
 
@@ -293,7 +282,7 @@ export default function DiscoveryScreen({
         <button
           onClick={onFindPicks}
           disabled={isLoading}
-          className="w-full py-4 bg-terracotta-500 text-cream font-medium rounded-2xl text-base tracking-wide transition-all duration-150 hover:bg-terracotta-600 active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+          className="w-full py-4 bg-sage-500 text-cream font-medium rounded-2xl text-base tracking-wide transition-all duration-150 hover:bg-sage-600 active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
         >
           {isLoading ? <><Spinner /> Finding your picks…</> : 'Find my picks →'}
         </button>
@@ -301,8 +290,6 @@ export default function DiscoveryScreen({
     </div>
   )
 }
-
-// ─── Helpers ──────────────────────────────────────────────────────────────────
 
 function toggle(arr: string[], value: string): string[] {
   return arr.includes(value) ? arr.filter(v => v !== value) : [...arr, value]
@@ -319,7 +306,7 @@ function FilterSection({ label, children }: { label: string; children: React.Rea
 
 function SubFilterSection({ label, hint, children }: { label: string; hint: string; children: React.ReactNode }) {
   return (
-    <div className="pl-4 border-l-2 border-terracotta-100">
+    <div className="pl-4 border-l-2 border-sage-100">
       <p className="text-[10px] font-semibold tracking-[0.15em] text-zinc-400 uppercase mb-1">
         {label}{' '}
         <span className="normal-case font-normal tracking-normal text-zinc-300">— {hint}</span>

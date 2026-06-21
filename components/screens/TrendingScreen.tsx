@@ -31,8 +31,6 @@ export default function TrendingScreen({ onSave, isPlaceSaved }: TrendingScreenP
 
   useEffect(() => { fetchTrending() }, [fetchTrending])
 
-  // Convert TrendingVenue → Place so it can be saved with the same storage layer.
-  // Explicit mapping avoids spreading TrendingVenue-only fields (e.g. seenIn) into Place.
   const handleSave = (venue: TrendingVenue) => {
     const place: Place = {
       id:            venue.id,
@@ -49,9 +47,9 @@ export default function TrendingScreen({ onSave, isPlaceSaved }: TrendingScreenP
   }
 
   return (
-    <div className="flex-1 px-5 md:px-8 lg:px-10 pt-14 pb-36 overflow-y-auto">
+    <div className="px-5 md:px-8 lg:px-10">
       <header className="mb-6">
-        <p className="text-[10px] font-semibold tracking-[0.2em] text-terracotta-500 uppercase mb-3">
+        <p className="text-[10px] font-semibold tracking-[0.2em] text-sage-500 uppercase mb-3">
           Melbourne · What&apos;s hot
         </p>
         <h1 className="font-serif text-[2.4rem] leading-tight text-charcoal mb-1">

@@ -38,7 +38,7 @@ export default function EventCard({ place, index, onSave, isSaved, isCloseMatch 
                 Close match
               </span>
             )}
-            <span className="flex items-center gap-1 text-[10px] font-semibold tracking-wider text-terracotta-500 uppercase bg-terracotta-50 px-2 py-0.5 rounded-full">
+            <span className="flex items-center gap-1 text-[10px] font-semibold tracking-wider text-sage-500 uppercase bg-sage-50 px-2 py-0.5 rounded-full">
               <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
                 <line x1="16" y1="2" x2="16" y2="6"/>
@@ -48,7 +48,7 @@ export default function EventCard({ place, index, onSave, isSaved, isCloseMatch 
               Event
             </span>
           </div>
-          <h3 className="font-serif text-xl text-charcoal leading-tight">{place.name}</h3>
+          <h3 className="font-semibold text-xl text-charcoal leading-tight">{place.name}</h3>
         </div>
 
         <button
@@ -58,8 +58,8 @@ export default function EventCard({ place, index, onSave, isSaved, isCloseMatch 
             popEffect ? 'scale-125' : 'scale-100'
           } ${
             isSaved
-              ? 'bg-terracotta-500 text-cream'
-              : 'bg-zinc-50 text-zinc-400 hover:bg-terracotta-50 hover:text-terracotta-400 active:scale-90'
+              ? 'bg-sage-500 text-white'
+              : 'bg-zinc-50 text-zinc-400 hover:bg-sage-50 hover:text-sage-400 active:scale-90'
           }`}
         >
           <svg width="15" height="15" viewBox="0 0 24 24" fill={isSaved ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -70,14 +70,13 @@ export default function EventCard({ place, index, onSave, isSaved, isCloseMatch 
 
       <p className="text-sm text-zinc-600 leading-relaxed mb-3">{place.description}</p>
 
-      <div className="bg-terracotta-50 rounded-xl px-4 py-2.5 mb-4">
-        <p className="text-xs text-terracotta-800 leading-relaxed">
-          <span className="font-semibold">Why go? </span>
+      <div className="bg-zinc-50 rounded-xl px-4 py-2.5 mb-4">
+        <p className="text-xs text-zinc-600 leading-relaxed">
+          <span className="font-semibold text-charcoal">Why go? </span>
           {place.whyItMatches}
         </p>
       </div>
 
-      {/* Meta row */}
       <div className="flex items-center flex-wrap gap-x-3 gap-y-1 text-xs text-zinc-500 mb-4">
         <span>{place.cuisineType}</span>
         <span className="text-zinc-300">·</span>
@@ -118,7 +117,7 @@ export default function EventCard({ place, index, onSave, isSaved, isCloseMatch 
             href={place.ticketUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 text-center text-xs font-medium py-2.5 rounded-xl bg-terracotta-500 text-cream hover:bg-terracotta-600 transition-all duration-150 active:scale-[0.98]"
+            className="flex-1 text-center text-xs font-medium py-2.5 rounded-xl bg-sage-500 text-white hover:bg-sage-600 transition-all duration-150 active:scale-[0.98]"
           >
             Get Tickets →
           </a>

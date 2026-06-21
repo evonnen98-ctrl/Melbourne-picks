@@ -1,6 +1,6 @@
 'use client'
 
-export type Screen = 'discovery' | 'results' | 'trending' | 'saved'
+export type Screen = 'home' | 'discovery' | 'results' | 'trending' | 'saved'
 
 interface NavProps {
   currentScreen: Screen
@@ -12,44 +12,44 @@ export default function Nav({ currentScreen, onNavigate, savedCount }: NavProps)
   const isDiscover = currentScreen === 'discovery' || currentScreen === 'results'
 
   return (
-    <nav className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[430px] md:max-w-3xl lg:max-w-5xl bg-cream/90 backdrop-blur-md border-t border-zinc-100">
+    <nav className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[430px] md:max-w-3xl lg:max-w-5xl bg-cream/90 backdrop-blur-md border-t border-espresso/10">
       <div className="flex pb-2 max-w-[430px] md:mx-auto">
         {/* Discover */}
         <button
           onClick={() => onNavigate('discovery')}
           className={`flex-1 flex flex-col items-center gap-1 pt-3 pb-1 transition-colors ${
-            isDiscover ? 'text-terracotta-500' : 'text-zinc-400 hover:text-zinc-600'
+            isDiscover ? 'text-espresso' : 'text-olive hover:text-espresso'
           }`}
         >
           <DiscoverIcon />
-          <span className="text-[10px] font-semibold tracking-widest uppercase">Discover</span>
+          <span className="text-[10px] font-display tracking-widest uppercase">Discover</span>
         </button>
 
         {/* Trending */}
         <button
           onClick={() => onNavigate('trending')}
           className={`flex-1 flex flex-col items-center gap-1 pt-3 pb-1 transition-colors ${
-            currentScreen === 'trending' ? 'text-terracotta-500' : 'text-zinc-400 hover:text-zinc-600'
+            currentScreen === 'trending' ? 'text-espresso' : 'text-olive hover:text-espresso'
           }`}
         >
           <TrendingIcon />
-          <span className="text-[10px] font-semibold tracking-widest uppercase">Trending</span>
+          <span className="text-[10px] font-display tracking-widest uppercase">Trending</span>
         </button>
 
         {/* Saved */}
         <button
           onClick={() => onNavigate('saved')}
           className={`flex-1 flex flex-col items-center gap-1 pt-3 pb-1 transition-colors relative ${
-            currentScreen === 'saved' ? 'text-terracotta-500' : 'text-zinc-400 hover:text-zinc-600'
+            currentScreen === 'saved' ? 'text-espresso' : 'text-olive hover:text-espresso'
           }`}
         >
           <BookmarkIcon />
           {savedCount > 0 && (
-            <span className="absolute top-2.5 right-[calc(50%-18px)] min-w-4 h-4 bg-terracotta-500 text-cream text-[9px] font-bold rounded-full flex items-center justify-center px-0.5">
+            <span className="absolute top-2.5 right-[calc(50%-18px)] min-w-4 h-4 bg-espresso text-cream text-[9px] font-display rounded-full flex items-center justify-center px-0.5">
               {savedCount > 9 ? '9+' : savedCount}
             </span>
           )}
-          <span className="text-[10px] font-semibold tracking-widest uppercase">Saved</span>
+          <span className="text-[10px] font-display tracking-widest uppercase">Saved</span>
         </button>
       </div>
     </nav>

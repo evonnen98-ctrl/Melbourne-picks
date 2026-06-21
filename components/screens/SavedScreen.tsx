@@ -14,9 +14,9 @@ export default function SavedScreen({ savedPlaces, onRemove, onUpdate }: SavedSc
   const visited  = savedPlaces.filter(p => p.status === 'been-there')
 
   return (
-    <div className="flex-1 px-5 md:px-8 lg:px-10 pt-14 pb-36 overflow-y-auto">
+    <div className="px-5 md:px-8 lg:px-10">
       <header className="mb-6">
-        <p className="text-[10px] font-semibold tracking-[0.2em] text-terracotta-500 uppercase mb-3">Melbourne · Your places</p>
+        <p className="text-[10px] font-semibold tracking-[0.2em] text-sage-500 uppercase mb-3">Melbourne · Your places</p>
         <h2 className="font-serif text-[2rem] leading-tight text-charcoal">
           {savedPlaces.length === 0
             ? 'Your list is empty.'
@@ -33,7 +33,7 @@ export default function SavedScreen({ savedPlaces, onRemove, onUpdate }: SavedSc
         <div className="space-y-8">
           {wishlist.length > 0 && (
             <section>
-              <p className="text-[10px] font-semibold tracking-[0.15em] text-zinc-400 uppercase mb-3">
+              <p className="text-[10px] font-semibold tracking-[0.2em] text-zinc-400 uppercase mb-3">
                 Want to go · {wishlist.length}
               </p>
               <div className="space-y-4">
@@ -51,7 +51,7 @@ export default function SavedScreen({ savedPlaces, onRemove, onUpdate }: SavedSc
 
           {visited.length > 0 && (
             <section>
-              <p className="text-[10px] font-semibold tracking-[0.15em] text-zinc-400 uppercase mb-3">
+              <p className="text-[10px] font-semibold tracking-[0.2em] text-zinc-400 uppercase mb-3">
                 Been there · {visited.length}
               </p>
               <div className="space-y-4">
