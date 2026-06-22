@@ -25,17 +25,17 @@ export default function TrendingCard({ venue, rank, onSave, isSaved }: TrendingC
   }
 
   return (
-    <div className="bg-white rounded-2xl p-5 shadow-sm border border-zinc-100/80 hover:shadow-md transition-shadow duration-200">
-      <div className="flex items-start gap-4">
+    <div className="bg-white rounded-2xl p-5 shadow-sm border border-zinc-100/80 hover:shadow-md transition-shadow duration-200 flex flex-col">
+      <div className="flex gap-4 flex-1">
         {/* Rank badge */}
-        <div className="flex-shrink-0 w-9 h-9 rounded-full bg-sage-50 flex items-center justify-center">
+        <div className="flex-shrink-0 self-start w-9 h-9 rounded-full bg-sage-50 flex items-center justify-center">
           <span className="text-xs font-bold text-sage-500">
             {String(rank).padStart(2, '0')}
           </span>
         </div>
 
         {/* Content */}
-        <div className="flex-1 min-w-0">
+        <div className="flex-1 min-w-0 flex flex-col">
           <div className="flex items-start justify-between gap-3">
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2 mb-0.5">
@@ -100,7 +100,7 @@ export default function TrendingCard({ venue, rank, onSave, isSaved }: TrendingC
           )}
 
           {/* Action buttons */}
-          <div className="flex gap-2 mt-3">
+          <div className="flex gap-2 mt-auto pt-3">
             <a
               href={googleHref(venue.name)}
               target="_blank"
