@@ -17,7 +17,7 @@ export default function SavedScreen({ savedPlaces, onRemove, onUpdate }: SavedSc
     <div className="px-5 md:px-8 lg:px-10">
       <header className="mb-6">
         <p className="text-[10px] font-semibold tracking-[0.2em] text-sage-500 uppercase mb-3">Melbourne · Your places</p>
-        <h2 className="font-serif text-[2rem] leading-tight text-charcoal">
+        <h2 className="font-heading text-[2rem] uppercase tracking-[-0.03em] leading-[1.05] text-espresso">
           {savedPlaces.length === 0
             ? 'Your list is empty.'
             : <>{savedPlaces.length}{' '}place{savedPlaces.length !== 1 ? 's' : ''}{' '}saved.</>}

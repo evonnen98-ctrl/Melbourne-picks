@@ -52,7 +52,7 @@ export default function TrendingScreen({ onSave, isPlaceSaved }: TrendingScreenP
         <p className="text-[10px] font-semibold tracking-[0.2em] text-sage-500 uppercase mb-3">
           Melbourne · What&apos;s hot
         </p>
-        <h1 className="font-serif text-[2.4rem] leading-tight text-charcoal mb-1">
+        <h1 className="font-heading text-[2.4rem] uppercase tracking-[-0.03em] leading-[1.05] text-espresso mb-1">
           Trending in Melbourne.
         </h1>
         <p className="text-sm text-zinc-400">Curated from Melbourne&apos;s best guides.</p>

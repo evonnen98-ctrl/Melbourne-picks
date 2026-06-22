@@ -24,8 +24,8 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans:  ['var(--font-inter)',    'system-ui', 'sans-serif'],
-        serif: ['var(--font-dm-serif)', 'Georgia',   'serif'],
+        sans:    ['var(--font-inter)',    'system-ui', 'sans-serif'],
+        heading: ['var(--font-heading)', 'sans-serif'],
       },
     },
   },

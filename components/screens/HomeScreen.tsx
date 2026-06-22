@@ -10,7 +10,7 @@ export default function HomeScreen() {
 
       {/* Centered headline */}
       <div className="absolute inset-0 z-10 flex items-center justify-center">
-        <h1 className="font-serif text-cream text-center text-7xl md:text-8xl lg:text-9xl leading-none">
+        <h1 className="font-heading text-cream text-center text-7xl md:text-8xl lg:text-9xl uppercase tracking-[-0.03em] leading-[1.05]">
           My Next<br />Spot
         </h1>
       </div>

@@ -108,7 +108,7 @@ export default function DiscoveryScreen({
           Melbourne · Personalised picks
         </p>
         <div className="flex items-end justify-between">
-          <h1 className="font-serif text-[2.4rem] leading-tight text-charcoal">
+          <h1 className="font-heading text-[2.4rem] uppercase tracking-[-0.03em] leading-[1.05] text-espresso">
             Find your next spot.
           </h1>
           {hasActiveFilters && (

@@ -138,7 +138,7 @@ export default function ResultsScreen({
             <p className="text-[10px] font-semibold tracking-[0.2em] text-sage-500 uppercase mb-3">
               No results
             </p>
-            <h2 className="font-serif text-[2rem] leading-tight text-charcoal mb-2">
+            <h2 className="font-heading text-[2rem] uppercase tracking-[-0.03em] leading-[1.05] text-espresso mb-2">
               Nothing quite matched.
             </h2>
             <p className="text-sm text-zinc-500 leading-relaxed">
@@ -160,7 +160,7 @@ export default function ResultsScreen({
             <p className="text-[10px] font-semibold tracking-[0.2em] text-sage-500 uppercase mb-3">
               Your picks
             </p>
-            <h2 className="font-serif text-[2rem] leading-tight text-charcoal">
+            <h2 className="font-heading text-[2rem] uppercase tracking-[-0.03em] leading-[1.05] text-espresso">
               We found{' '}{allResults.length}{' '}{allResults.length !== 1 ? 'places' : 'place'}{' '}you&apos;ll love.
             </h2>
           </header>
