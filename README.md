@@ -16,6 +16,6 @@ I wanted to see how AI could create a more personalized alternative to tradition
 React (Vite), TypeScript, Node.js, Express, Claude API, Google Places API, Tailwind CSS
 
 ## Key Learnings
-* **The limits of standalone LLMs:** I realized that LLMs alone aren't reliable for real-world recommendations because they lack a structured, up-to-date data source. 
+* **The limits of standalone LLMs:** I realised that LLMs alone aren't reliable for real-world recommendations because they lack a structured, up-to-date data source. 
 * **Grounding AI with live data:** To fix this, I integrated the Google Places API. This grounded the AI's outputs in real, existing venue data and drastically improved accuracy.
 * **Data curation:** I learned firsthand how much the quality of a recommendation relies on smart data filtering and structuring behind the scenes.
